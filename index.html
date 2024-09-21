@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The SMP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #language-selector {
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        const translations = {
+            en: {
+                title: "Welcome to The SMP",
+                description: "This is a Minecraft server for survival and creativity."
+            },
+            zh_tw: {
+                title: "歡迎來到 The SMP",
+                description: "這是一個以生存和創建為主的 Minecraft 伺服器。"
+            },
+            zh_cn: {
+                title: "欢迎来到 The SMP",
+                description: "这是一个以生存和创建为主的 Minecraft 服务器。"
+            }
+        };
+
+        function changeLanguage(language) {
+            document.getElementById("title").innerText = translations[language].title;
+            document.getElementById("description").innerText = translations[language].description;
+        }
+    </script>
+</head>
+<body>
+    <div id="language-selector">
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('zh_tw')">繁體中文</button>
+        <button onclick="changeLanguage('zh_cn')">简体中文</button>
+    </div>
+
+    <h1 id="title">Welcome to The SMP</h1>
+    <p id="description">This is a Minecraft server for survival and creativity.</p>
+</body>
+</html>
