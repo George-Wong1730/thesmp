@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理員後臺</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .main {
+            background: #fff;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .login-form, .admin-panel {
+            display: none;
+        }
+        .login-form.active, .admin-panel.active {
+            display: block;
+        }
+    </style>
+    <script>
+        function base64Encode(str) {
+            return btoa(unescape(encodeURIComponent(str)));
+        }
+
+        function base64Decode(str) {
+            return decodeURIComponent(escape(atob(str)));
+        }
+
+        function saveAdminInfo() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var adminInfo = {
+                username: base64Encode(username),
+                password: base64Encode(password)
+            };
+            localStorage.setItem('adminInfo', JSON.stringify(adminInfo));
+            alert('管理員信息已保存');
+        }
+
+        function login() {
+            var username = document.getElementById('login-username').value;
+            var password = document.getElementById('login-password').value;
+            var storedInfo = JSON.parse(localStorage.getItem('adminInfo'));
+            if (storedInfo && base64Decode(storedInfo.username) === username && base64Decode(storedInfo.password) === password) {
+                document.querySelector('.login-form').classList.remove('active');
+                document.querySelector('.admin-panel').classList.add('active');
+            } else {
+                alert('登入失敗，請檢查用戶名和密碼。');
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>管理員後臺</h1>
+    </header>
+    <div class="container">
+        <div class="main">
+            <div class="login-form active">
+                <h2>管理員登入</h2>
+                <label for="login-username">用戶名：</label>
+                <input type="text" id="login-username" name="login-username"><br><br>
+                <label for="login-password">密碼：</label>
+                <input type="password" id="login-password" name="login-password"><br><br>
+                <button onclick="login()">登入</button>
+            </div>
+            <div class="admin-panel">
+                <h2>管理員面板</h2>
+                <p>歡迎，管理員！</p>
+                <ul>
+                    <li><a href="#">管理伺服器設定</a></li>
+                    <li><a href="#">查看玩家列表</a></li>
+                    <li><a href="#">管理插件</a></li>
+                </ul>
+                <h2>儲存管理員信息</h2>
+                <label for="username">用戶名：</label>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="password">密碼：</label>
+                <input type="password" id="password" name="password"><br><br>
+                <button onclick="saveAdminInfo()">儲存</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 管理員後臺. All rights reserved.</p>
+    </footer>
+</body>
+</html>
