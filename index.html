@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 The SMP伺服器 - 最新版本，純淨體驗！</title>
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        header {
+            background-color: #1E90FF;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+        nav {
+            background-color: #4682B4;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            padding: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .language-switch {
+            display: flex;
+            gap: 10px;
+        }
+        .language-switch button {
+            background-color: #87CEEB;
+            border: none;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .language-switch button:hover {
+            background-color: #00BFFF;
+        }
+        .hero {
+            background-image: url('minecraft-background.jpg');
+            background-size: cover;
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.5em;
+        }
+        .join-button {
+            background-color: #32CD32;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            text-decoration: none;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .join-button:hover {
+            background-color: #228B22;
+        }
+        footer {
+            background-color: #1E90FF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
 
+    <!-- 頁首與導航 -->
+    <header>
+        <h1>🎮 The SMP伺服器 - 最新版本，純淨體驗！</h1>
+    </header>
+
+    <nav>
+        <div>
+            <a href="#">首頁</a>
+            <a href="#">伺服器介紹</a>
+            <a href="#">遊戲規則</a>
+            <a href="#">插件列表</a>
+            <a href="#">玩家社群</a>
+            <a href="#">聯繫我們</a>
+        </div>
+        <div class="language-switch">
+            <button onclick="switchLanguage('zh-TW')">繁體中文</button>
+            <button onclick="switchLanguage('zh-CN')">简体中文</button>
+            <button onclick="switchLanguage('en')">English</button>
+        </div>
+    </nav>
+
+    <!-- 首頁內容 -->
+    <section class="hero">
+        <h1>歡迎來到 The SMP伺服器</h1>
+        <p>加入我們的純淨世界，體驗無與倫比的生存挑戰！</p>
+        <a href="#" class="join-button">立即加入伺服器</a>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer>
+        <p>© 2024 The SMP伺服器. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function switchLanguage(lang) {
+            alert('切換語言至: ' + lang);  // 這裡可以連接真正的語言切換功能
+        }
+    </script>
+</body>
+</html>
