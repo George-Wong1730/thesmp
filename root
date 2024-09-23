@@ -1,0 +1,8 @@
+/index.html
+/web/
+  ├── server-intro.html      (伺服器介紹)
+  ├── game-rules.html        (遊戲規則)
+  ├── plugins.html           (插件列表)
+  ├── community.html         (玩家社群)
+  ├── contact.html           (聯繫我們)
+  ├── join-server.html       (立即加入伺服器)
